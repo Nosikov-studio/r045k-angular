@@ -1,6 +1,10 @@
+# с билдингом (автор: ИИ)
 name: MFk2
+
 on: 
-  push    
+  push:
+    branches:
+      - main
   #workflow_dispatch
 
 env:
@@ -8,39 +12,42 @@ env:
   SERVER_USER: root
   SERVER_PATH: /var/www/client/inst
 
-
 jobs:
-
   deployJobs:
     runs-on: ubuntu-latest
     steps:
-    - name: part1
-      uses: actions/checkout@v2
-       # Setup key
-    - name: part2
-      run: set -eu
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: part3  
-      run: mkdir "$HOME/.ssh"
-    
-    - name: part4
-      run: echo "${{ secrets.PKEY }}" > "$HOME/.ssh/key"
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # или нужная версия Node.js
 
-    - name: part5
-      run: chmod 600 "$HOME/.ssh/key"
+      - name: Install dependencies
+        run: npm install
 
-      # Deploy
-    - name: part6
-      run: rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
+      - name: Build Angular app
+        run: npm run build --prod
 
-    - name: part7 - deploy new content from github
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ env.SERVER_HOST }}
-        username: ${{ env.SERVER_USER }}
-        key: ${{ secrets.PKEY }}
-        script: |
-           rm -rf /var/www/client/inst/.git/
-           rm -rf /var/www/client/inst/.github/
-           rm  /var/www/client/inst/.gitignore
-           cp -r /var/www/client/inst/public/* /var/www/client/
+      - name: Setup SSH key
+        run: |
+          mkdir -p $HOME/.ssh
+          echo "${{ secrets.PKEY }}" > $HOME/.ssh/key
+          chmod 600 $HOME/.ssh/key
+
+      - name: Deploy built files to server
+        run: |
+          rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete ./dist/your-angular-app-name/ ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
+
+      - name: Clean up and finalize deployment on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ env.SERVER_HOST }}
+          username: ${{ env.SERVER_USER }}
+          key: ${{ secrets.PKEY }}
+          script: |
+            rm -rf /var/www/client/inst/.git/
+            rm -rf /var/www/client/inst/.github/
+            rm /var/www/client/inst/.gitignore
+            cp -r /var/www/client/inst/public/* /var/www/client/
