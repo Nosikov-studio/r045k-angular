@@ -28,7 +28,7 @@ jobs:
         run: npm install
 
       - name: Build Angular app
-        run: ng build 
+        run: npm run build 
 
       - name: Setup SSH key
         run: |
@@ -38,7 +38,7 @@ jobs:
 
       - name: Deploy built files to server
         run: |
-          rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete ./public ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
+          rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete ./public/ ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
 
       # - name: Clean up and finalize deployment on server
       #   uses: appleboy/ssh-action@master
