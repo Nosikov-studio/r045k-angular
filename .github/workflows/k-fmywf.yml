@@ -10,7 +10,7 @@ on:
 env:
   SERVER_HOST: '85.28.47.165'
   SERVER_USER: root
-  SERVER_PATH: /var/www/client/inst
+  SERVER_PATH: /var/www/client/
 
 jobs:
   deployJobs:
@@ -38,16 +38,16 @@ jobs:
 
       - name: Deploy built files to server
         run: |
-          rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete ./dist/your-angular-app-name/ ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
+          rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete ./public ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
 
-      - name: Clean up and finalize deployment on server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ env.SERVER_HOST }}
-          username: ${{ env.SERVER_USER }}
-          key: ${{ secrets.PKEY }}
-          script: |
-            rm -rf /var/www/client/inst/.git/
-            rm -rf /var/www/client/inst/.github/
-            rm /var/www/client/inst/.gitignore
-            cp -r /var/www/client/inst/public/* /var/www/client/
+      # - name: Clean up and finalize deployment on server
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ env.SERVER_HOST }}
+      #     username: ${{ env.SERVER_USER }}
+      #     key: ${{ secrets.PKEY }}
+      #     script: |
+      #       rm -rf /var/www/client/inst/.git/
+      #       rm -rf /var/www/client/inst/.github/
+      #       rm /var/www/client/inst/.gitignore
+      #       cp -r /var/www/client/inst/public/* /var/www/client/
