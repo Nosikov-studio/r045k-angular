@@ -1,1 +1,13 @@
-<p>header works!</p>
+<div class="container">
+    <header
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <div class="col-md-3 mb-2 mb-md-0"> Ангуляр     </div>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="nav-link px-2 link-secondary" [routerLink]="['/']">Главная</a></li>
+
+        </ul>
+        <div class="col-md-3 text-end"> 
+            <a  class="btn btn-outline-primary me-2" [routerLink]="['/auth']">Login</a>
+            <a  class="btn btn-primary" [routerLink]="['/reg']">Sign-up</a> </div>
+    </header>
+</div>
