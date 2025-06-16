@@ -8,6 +8,7 @@ import { RegComponent } from './reg/reg.component';
 import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
 
 // import { RouterModule, Routes } from '@angular/router';
 
@@ -24,7 +25,8 @@ import { HomeComponent } from './home/home.component';
     RegComponent,
     AuthComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
