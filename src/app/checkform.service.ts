@@ -7,13 +7,13 @@ export class CheckformService {
 
   constructor() { }
   checkEmail(email:String) {
-    if(email == undefined)
+    if(email == undefined || email =="")
       return false;
     else
       return true;
   }
     checkPassword(password:String) {
-    if(password == undefined)
+    if(password == undefined|| password =="")
       return false;
     else
       return true;
