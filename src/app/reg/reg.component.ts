@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class RegComponent {
 
+  userRegisterClick(){
+    console.log("yes");
+  }
+
 }
