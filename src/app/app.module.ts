@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { FormsModule } from '@angular/forms';
+import {CheckformService} from './checkform.service';
 
 // import { RouterModule, Routes } from '@angular/router';
 
@@ -36,7 +37,7 @@ import { FormsModule } from '@angular/forms';
 //    RouterModule.forRoot(appRoute)
     FormsModule
   ],
-  providers: [],
+  providers: [CheckformService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

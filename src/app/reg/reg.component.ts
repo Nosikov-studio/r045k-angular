@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {CheckformService} from '../checkform.service';
 
 @Component({
   selector: 'app-reg',
@@ -12,12 +12,21 @@ export class RegComponent implements OnInit {
 email: string = '';
 password: string = '';
 
-  constructor() {}
-  ngOnInit() {   
-  }
+  constructor(private checkForm: CheckformService) {}
+  ngOnInit() {}
   userRegisterClick() {
-    console.log(this.email);
-    return false;
-  }
+    // console.log(this.email);
+    // return false;
+    const user = {
+      email: this.email,
+      password: this.password,
+    };
+    if(!this.checkForm.checkEmail(user.email)) {
+      console.log("Имэйла не видно!");
+      return false;
+    } else if(!this.checkForm.checkEmail(user.password)) {
+      console.log("Пароля не видно!");
+      return false;
+  };
 
 }
