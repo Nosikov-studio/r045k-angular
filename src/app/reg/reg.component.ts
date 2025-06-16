@@ -7,10 +7,12 @@ import { Component } from '@angular/core';
 })
 export class RegComponent {
 
-  userRegisterClick(){
-    console.log("yes");
-    return false;
+  email: String;
+  password: String;
 
+  userRegisterClick() {
+    console.log(this.email);
+    return false;
   }
 
 }

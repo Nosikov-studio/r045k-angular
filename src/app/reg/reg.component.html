@@ -1,7 +1,7 @@
 <h1>Форма регистрации</h1>
 <form  name="form0" id="form0" style="background-color:Goldenrod;" (submit)="userRegisterClick()">
-    <p>Логин <input name="email" type="text" placeholder="введите имэйл"> </p>
-    <p>Пароль <input name="password" type="text" placeholder="введите пароль"> </p>
+    <p>Логин <input [(ngModel)]="email" name="email" type="text" placeholder="введите имэйл"> </p>
+    <p>Пароль <input [(ngModel)]="password" name="password" type="text" placeholder="введите пароль"> </p>
     <!--<p><input name="submit" type="submit" value="push!"> </p> -->
 <button type="submit">Зарегистрироваться</button>
 
