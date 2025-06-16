@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegComponent implements OnInit {
 
-  email: String;
-  password: String;
+email: string = '';
+password: string = '';
 
   constructor() {}
   ngOnInit() {   
