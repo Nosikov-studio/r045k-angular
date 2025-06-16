@@ -9,6 +9,8 @@ export class RegComponent {
 
   userRegisterClick(){
     console.log("yes");
+    return false;
+
   }
 
 }
