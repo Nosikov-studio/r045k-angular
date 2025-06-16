@@ -24,9 +24,11 @@ password: string = '';
     if(!this.checkForm.checkEmail(user.email)) {
       console.log("Имэйла не видно!");
       return false;
-    } else if(!this.checkForm.checkEmail(user.password)) {
+    } else if(!this.checkForm.checkPassword(user.password)) {
       console.log("Пароля не видно!");
       return false;
   };
-
+  console.log("OK!!!!!!");
+  return true;
+}
 }
