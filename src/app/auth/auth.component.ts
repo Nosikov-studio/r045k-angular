@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AuthComponent implements OnInit{
 
-  form: FormGroup;
+  form!: FormGroup;
 
   constructor() {}
 
