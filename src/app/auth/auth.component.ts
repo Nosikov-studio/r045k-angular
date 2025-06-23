@@ -8,12 +8,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AuthComponent implements OnInit{
 
-  form!: FormGroup;
+  form1!: FormGroup;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
+    this.form1 = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
     })
