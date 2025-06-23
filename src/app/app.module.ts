@@ -10,7 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {CheckformService} from './checkform.service';
 
 // import { RouterModule, Routes } from '@angular/router';
@@ -35,7 +35,8 @@ import {CheckformService} from './checkform.service';
     BrowserModule,
     AppRoutingModule,
 //    RouterModule.forRoot(appRoute)
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [CheckformService],
   bootstrap: [AppComponent]

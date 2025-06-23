@@ -1,8 +1,12 @@
 <h1>Аутентификация JWT</h1>
-<form method="post" name="form1" id="form1" style="background-color:DeepSkyBlue;">
-    <p>Логин <input name="email" type="text" placeholder="введите имэйл"> </p>
-    <p>Пароль <input name="password" type="text" placeholder="введите пароль"> </p>
-    <p><input name="submit" type="submit" value="push!"> </p>
+<form method="post" [formGroup]="form" (ngSubmit)="onSubmit" name="form1" id="form1" style="background-color:DeepSkyBlue;">
+    <p>Логин <input formControlName="email" name="email" type="text" placeholder="введите имэйл"> </p>
+    <p>Пароль <input formControlName="password" name="password" type="text" placeholder="введите пароль"> </p>
+<!--     <p><input name="submit" type="submit" value="push!"> </p> -->
+     <button>
+        type ="submit"
+        [disabled] ="form.invalid"
+     </button>
 
 
 </form>
