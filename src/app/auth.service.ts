@@ -14,7 +14,7 @@ export class AuthService {
   register() {}
 
   login(user: User):Observable<{token: string}> {
-    return this.http.post<{token: string}>('/truruki.ru/api/auth/login', user)
+    return this.http.post<{token: string}>('/api/auth/login', user)
   }
 
   
