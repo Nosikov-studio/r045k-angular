@@ -16,7 +16,7 @@
     <p>Пароль <input formControlName="password" name="password" type="text" placeholder="введите пароль"
          [ngClass]="{'invalid': form1.get('password')?.invalid && form1.get('password')?.touched}"> </p>
 <!--     <p><input name="submit" type="submit" value="push!"> </p> -->
-    <span *ngIf="form1.get('password')?.invalid && form1.get('password')?.touched">
+    <span *ngIf="form1.get('password')?.invalid && form1.get('password')?.touched" style="color: red;">
         некорректный пароль</span> 
      <button type ="submit"  [disabled] ="form1.invalid">
         кнопка
