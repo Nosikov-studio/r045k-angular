@@ -1,6 +1,7 @@
 <h1>Аутентификация JWT</h1>
 <form method="post" [formGroup]="form1" (ngSubmit)="onSubmit()" name="form1" id="form1" style="background-color:DeepSkyBlue;">
-    <p>Логин <input formControlName="email" name="email" type="text" placeholder="введите имэйл"> </p>
+    <p>Логин <input formControlName="email" name="email" type="text" placeholder="введите имэйл"
+        [ngClass]="{'invalid': form1.get('email')?.invalid && form1.get('email')?.touched}"> </p>
     
     
     <span style="color: red;" *ngIf="form1.get('email')?.invalid && form1.get('email')?.touched">
