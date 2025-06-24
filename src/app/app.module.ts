@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {CheckformService} from './checkform.service';
+import { HttpClientModule } from '@angular/common/http';
 
 // import { RouterModule, Routes } from '@angular/router';
 
@@ -36,7 +37,8 @@ import {CheckformService} from './checkform.service';
     AppRoutingModule,
 //    RouterModule.forRoot(appRoute)
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [CheckformService],
   bootstrap: [AppComponent]

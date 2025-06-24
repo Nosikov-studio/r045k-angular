@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -10,7 +11,7 @@ export class AuthComponent implements OnInit{
 
   form1!: FormGroup;
 
-  constructor() {}
+  constructor(private auth: AuthService) {}
 
   ngOnInit(): void {
     this.form1 = new FormGroup({
@@ -23,5 +24,13 @@ export class AuthComponent implements OnInit{
         console.log(this.form1.value)
      } else {alert("Форма не валидна")}       
       
+    //  const user={
+    //   email: this.form1.value.email,
+    //   password: this.form1.value.password
+    //  }
+      this.auth.login(this.form1.value).subscribe(
+        () => console.log('Login success'),
+        error => {console.warn(error)}
+      )
     }
 }
