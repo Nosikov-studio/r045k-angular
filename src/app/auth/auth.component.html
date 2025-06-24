@@ -4,7 +4,13 @@
     
     
     <span style="color: red;" *ngIf="form1.get('email')?.invalid && form1.get('email')?.touched">
-        Это поле обязательна для заполнения</span>
+       
+    <span *ngIf="form1.get('email')?.errors?.['required']">
+        Email не должен быть пустым</span>
+    <span *ngIf="form1.get('email')?.errors?.['email']">
+        Ошибка ввода Email </span>    
+    
+    </span>
     
     <p>Пароль <input formControlName="password" name="password" type="text" placeholder="введите пароль"> </p>
 <!--     <p><input name="submit" type="submit" value="push!"> </p> -->
