@@ -19,6 +19,10 @@ export class AuthComponent implements OnInit{
     })
   }
     onSubmit(){
-
+     if(this.form1.valid) {
+        console.log(this.form1.value)
+     }
+        alert("Форма не валидна")
+      
     }
 }
