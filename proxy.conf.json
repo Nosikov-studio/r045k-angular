@@ -1,0 +1,14 @@
+{
+    "/api/*": {
+        "target": "https://truruki.ru/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/uploads/*": {
+        "target": "https://truruki.ru/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}
