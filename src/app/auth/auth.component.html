@@ -18,7 +18,7 @@
 <!--     <p><input name="submit" type="submit" value="push!"> </p> -->
     <span *ngIf="form1.get('password')?.invalid && form1.get('password')?.touched" style="color: red;">
         некорректный пароль</span> 
-     <button type ="submit"  [disabled] ="form1.invalid">
+     <button type ="submit"  [disabled] ="form1.invalid || form1.disabled">
         кнопка
      </button>
 
