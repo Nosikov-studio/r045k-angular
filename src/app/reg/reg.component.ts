@@ -33,7 +33,7 @@ aSub!: Subscription
   onSubmit() {
     this.form2.disable()
     this.aSub=this.auth.register(this.form2.value).subscribe(
-      () => {this.router.navigate(['/login'], {
+      () => {this.router.navigate(['/auth'], {
         queryParams: {
           registred: true
         }
