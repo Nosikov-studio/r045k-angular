@@ -15,7 +15,9 @@ export class AuthService {
   constructor(private http: HttpClient) { }
  private baseUrl = environment.apiUrl; // подсказал ИИ
 
-  register() {}
+  register(user: User):Observable<User> {
+    return this.http.post<User>(`${this.baseUrl}/api/auth/register`, user)
+  }
 
   login(user: User):Observable<{token: string}> {
     

@@ -1,8 +1,36 @@
 <h1>Форма регистрации</h1>
-<form  style="background-color:Goldenrod;" (submit)="userRegisterClick()">
-    <p>Логин <input [(ngModel)]="email" name="email" type="text" placeholder="введите имэйл"> </p>
-    <p>Пароль <input [(ngModel)]="password" name="password" type="text" placeholder="введите пароль"> </p>
+<form  style="background-color:Goldenrod;" >
+    <p>Логин <input name="email" type="text" placeholder="введите имэйл"> </p>
+    <p>Пароль <input name="password" type="text" placeholder="введите пароль"> </p>
     <!--<p><input name="submit" type="submit" value="push!"> </p> -->
 <button type="submit">Зарегистрироваться</button>
+
+</form>
+
+
+<h1>РЕГИСТРАЦИЯ / Форма 2</h1>
+<form method="post" [formGroup]="form2" (ngSubmit)="onSubmit()" name="form2" id="form2" style="background-color:gold;">
+    <p>Логин <input formControlName="email" name="email" type="text" placeholder="введите имэйл"
+        [ngClass]="{'invalid': form2.get('email')?.invalid && form2.get('email')?.touched}"> </p>
+    
+    
+    <span style="color: red;" *ngIf="form2.get('email')?.invalid && form2.get('email')?.touched">
+       
+    <span *ngIf="form2.get('email')?.errors?.['required']">
+        Email не должен быть пустым</span>
+    <span *ngIf="form2.get('email')?.errors?.['email']">
+        Ошибка ввода Email </span>    
+    
+    </span>
+    
+    <p>Пароль <input formControlName="password" name="password" type="text" placeholder="введите пароль"
+         [ngClass]="{'invalid': form2.get('password')?.invalid && form2.get('password')?.touched}"> </p>
+<!--     <p><input name="submit" type="submit" value="push!"> </p> -->
+    <span *ngIf="form2.get('password')?.invalid && form2.get('password')?.touched" style="color: red;">
+        некорректный пароль</span> 
+     <button type ="submit"  [disabled] ="form2.invalid || form2.disabled">
+        создать
+     </button>
+
 
 </form>
