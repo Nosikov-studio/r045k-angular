@@ -12,7 +12,8 @@ import { FooterComponent } from './footer/footer.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {CheckformService} from './checkform.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TokenInterceptor } from './auth/token.interceptor';
 
 // import { RouterModule, Routes } from '@angular/router';
 
@@ -40,7 +41,11 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [CheckformService],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    multi: true,
+    useClass: TokenInterceptor
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
