@@ -1,1 +1,81 @@
 @import "~materialize-css/dist/css/materialize.css";
+
+/* Добавьте эти стили в конец файла */
+.toast {
+    border-radius: 2px;
+    top: 0;
+    width: auto;
+    margin-top: 10px;
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    min-height: 48px;
+    line-height: 1.5em;
+    word-break: break-all;
+    background-color: #323232;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: default;
+    z-index: 9999;
+}
+
+.toast.red {
+    background-color: #F44336;
+}
+
+.toast.green {
+    background-color: #4CAF50;
+}
+
+.toast.blue {
+    background-color: #2196F3;
+}
+
+.toast.yellow {
+    background-color: #FF9800;
+}
+
+#toast-container {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+#toast-container * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#toast-container .toast {
+    position: relative;
+    overflow: hidden;
+    margin: 0 0 6px;
+    padding: 15px 15px 15px 50px;
+    width: 300px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    -moz-box-shadow: 0 0 12px #999999;
+    -webkit-box-shadow: 0 0 12px #999999;
+    box-shadow: 0 0 12px #999999;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+#toast-container .toast:hover {
+    -moz-box-shadow: 0 0 12px #000000;
+    -webkit-box-shadow: 0 0 12px #000000;
+    box-shadow: 0 0 12px #000000;
+    opacity: 1;
+    cursor: pointer;
+}
