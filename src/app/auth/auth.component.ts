@@ -52,7 +52,8 @@ export class AuthComponent implements OnInit, OnDestroy {
         () => this.router.navigate(['/overview']),
         error => {
 const message = error.error?.message || error.message || 'Произошла ошибка при авторизации';
-  MaterialService.toast(message);
+//  MaterialService.toast(message);
+alert(message); // Заменили MaterialService.toast на alert
   console.warn(error);
   this.form1.enable();
         }
