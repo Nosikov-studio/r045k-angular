@@ -1,7 +1,7 @@
 
 
 
-<h1>РЕГИСТРАЦИЯ / Форма 2</h1>
+<h1>РЕГИСТРАЦИЯ / Форма 2 - компонент reg</h1>
 <form method="post" [formGroup]="form2" (ngSubmit)="onSubmit()" name="form2" id="form2" style="background-color:gold;">
     <p>Логин <input formControlName="email" name="email" type="text" placeholder="введите имэйл"
         [ngClass]="{'invalid': form2.get('email')?.invalid && form2.get('email')?.touched}"> </p>
