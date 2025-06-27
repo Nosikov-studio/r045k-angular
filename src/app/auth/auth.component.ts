@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MaterialService } from '../material.service';
 
 @Component({
   selector: 'app-auth',
@@ -49,7 +50,9 @@ export class AuthComponent implements OnInit, OnDestroy {
     this.form1.disable()
       this.aSub = this.auth.login(this.form1.value).subscribe(
         () => this.router.navigate(['/overview']),
-        error => {console.warn(error)
+        error => {
+        MaterialService.toast(error)
+          console.warn(error)
         this.form1.enable()
         }
       )
