@@ -9,7 +9,16 @@ export class MaterialService {
         // Проверяем, доступен ли Materialize
         if (typeof M !== 'undefined' && M.toast) {
             console.log('Materialize доступен, показываем toast');
-            M.toast({html: message, displayLength: 4000});
+           // M.toast({html: message, displayLength: 4000});
+           // Создаем toast с правильными параметрами
+            M.toast({
+                html: message,
+                displayLength: 4000,
+                activationPercent: 0.8,
+                inDuration: 300,
+                outDuration: 375,
+                classes: 'red' // Добавляем красный цвет для ошибок
+            });
         } else {
             console.warn('Materialize недоступен, используем alert');
             alert(message);
