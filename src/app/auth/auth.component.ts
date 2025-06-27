@@ -39,9 +39,9 @@ export class AuthComponent implements OnInit, OnDestroy {
     
   }
     onSubmit(){
-     if(this.form1.valid) {
-        console.log(this.form1.value)
-     } else {alert("Форма не валидна")}       
+    //  if(this.form1.valid) {
+    //     console.log(this.form1.value)
+    //  } else {alert("Форма не валидна")}       
       
     //  const user={
     //   email: this.form1.value.email,
