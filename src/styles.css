@@ -79,3 +79,23 @@
     opacity: 1;
     cursor: pointer;
 } */
+
+
+#toast-container {
+  position: fixed !important;
+  bottom: 30px !important;
+  right: 30px !important;
+  z-index: 10000 !important;
+  pointer-events: auto !important;
+}
+
+.toast {
+  opacity: 1 !important;
+  display: block !important;
+  pointer-events: auto !important;
+  background-color: #e53935 !important; /* красный фон для ошибки */
+  color: white !important;
+  border-radius: 4px !important;
+  padding: 10px 20px !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3) !important;
+}
