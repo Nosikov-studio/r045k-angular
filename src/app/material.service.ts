@@ -9,9 +9,10 @@ export class MaterialService {
         // Проверяем, доступен ли Materialize
         if (typeof M !== 'undefined' && M.toast) {
             console.log('Materialize доступен, показываем toast');
+            const toast = M.toast;
            // M.toast({html: message, displayLength: 4000});
            // Создаем toast с правильными параметрами
-            M.toast({
+            toast({
                 html: message,
                 displayLength: 4000,
                 activationPercent: 0.8,

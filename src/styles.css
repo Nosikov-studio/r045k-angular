@@ -1,7 +1,7 @@
 @import "~materialize-css/dist/css/materialize.css";
 
 /* Добавьте эти стили в конец файла */
-.toast {
+/* .toast {
     border-radius: 2px;
     top: 0;
     width: auto;
@@ -78,4 +78,4 @@
     box-shadow: 0 0 12px #000000;
     opacity: 1;
     cursor: pointer;
-}
+} */
