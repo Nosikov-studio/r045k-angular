@@ -51,10 +51,10 @@ export class AuthComponent implements OnInit, OnDestroy {
       this.aSub = this.auth.login(this.form1.value).subscribe(
         () => this.router.navigate(['/overview']),
         error => {
-        MaterialService.toast(error)  
-        //M.toast({html: error})
-          console.warn(error)
-        this.form1.enable()
+const message = error.error?.message || error.message || 'Произошла ошибка при авторизации';
+  MaterialService.toast(message);
+  console.warn(error);
+  this.form1.enable();
         }
       )
     }
