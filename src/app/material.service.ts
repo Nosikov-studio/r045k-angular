@@ -15,7 +15,7 @@ export class MaterialService {
            // Создаем toast с правильными параметрами
             M.toast({
                 html: message,
-                displayLength: 4000,
+                displayLength: 40000,
                 activationPercent: 0.8,
                 inDuration: 300,
                 outDuration: 375,
