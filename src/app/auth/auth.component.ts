@@ -32,6 +32,8 @@ export class AuthComponent implements OnInit, OnDestroy {
       } else if (params['accessDenied']) {
         // авторизуйтесь
       MaterialService.toast('Авторизуйтесь!');    
+      } else if (params['sessionFailed']) {
+        MaterialService.toast('Войтите заново!'); 
       }
     })
   }
