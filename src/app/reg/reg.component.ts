@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { MaterialService } from '../material.service';
 @Component({
   selector: 'app-reg',
   templateUrl: './reg.component.html',
@@ -39,6 +40,7 @@ aSub!: Subscription
         }
       })},
       error => {
+        MaterialService.toast(error.error.message); 
         console.warn(error)
         this.form2.enable()
       }

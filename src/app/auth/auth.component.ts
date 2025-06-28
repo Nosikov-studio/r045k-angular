@@ -28,8 +28,10 @@ export class AuthComponent implements OnInit, OnDestroy {
     this.route.queryParams.subscribe((params: Params)=>{
       if (params['registered']){
         // можете
+      MaterialService.toast('Можете зайти в систему используя свои данные');  
       } else if (params['accessDenied']) {
         // авторизуйтесь
+      MaterialService.toast('Авторизуйтесь!');    
       }
     })
   }
