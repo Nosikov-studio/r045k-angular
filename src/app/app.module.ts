@@ -13,7 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {CheckformService} from './checkform.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { TokenInterceptor } from './auth/token.interceptor';
+import { TokenInterceptor } from './token.interceptor';
 
 // import { RouterModule, Routes } from '@angular/router';
 
