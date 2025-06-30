@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {CheckformService} from './checkform.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './token.interceptor';
+import { LoaderComponent } from './loader/loader.component';
 
 // import { RouterModule, Routes } from '@angular/router';
 
@@ -31,7 +32,8 @@ import { TokenInterceptor } from './token.interceptor';
     AuthComponent,
     DashboardComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
