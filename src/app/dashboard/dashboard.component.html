@@ -5,14 +5,16 @@
     routerLink="/categories/new"
     >Добавить категорию</button>
 </div>
-<div class="row">
+<div class="row" *ngIf="!loading">
     <div class="col s12">
         <div class="collection">
-            <a href="#!" class="collection-item">категория 1</a>
-            <a href="#!" class="collection-item">категория 2</a>
+            <a 
+            *ngFor="let category of categories"
+            href="#!" class="collection-item">{{category.name}}</a>
+            
 
         </div>
     </div>
 </div>
 
-<app-loader></app-loader>
+<app-loader *ngIf="loading"></app-loader>
