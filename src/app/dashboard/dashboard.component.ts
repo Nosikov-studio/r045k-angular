@@ -10,8 +10,8 @@ export class DashboardComponent implements OnInit {
   constructor(private categService: CategService){}
 
   ngOnInit(){
-    this.categService.fetch().subscribe( cat=>{
-      console.log(cat)
+    this.categService.fetch().subscribe( categories=>{
+      console.log('Categories', categories)
     })
   }
 
