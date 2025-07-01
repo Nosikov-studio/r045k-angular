@@ -15,6 +15,7 @@ import {CheckformService} from './checkform.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './token.interceptor';
 import { LoaderComponent } from './loader/loader.component';
+import { CategoriesFormComponent } from './dashboard/categories-form/categories-form.component';
 
 // import { RouterModule, Routes } from '@angular/router';
 
@@ -33,7 +34,8 @@ import { LoaderComponent } from './loader/loader.component';
     DashboardComponent,
     HomeComponent,
     FooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    CategoriesFormComponent
   ],
   imports: [
     BrowserModule,
