@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategService } from '../categ.service';
 import { Category } from '../interfaces';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,17 +9,13 @@ import { Category } from '../interfaces';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  loading = false
-  categories: Category[]=[]
+  
+  categories$?: Observable<Category[]>
   constructor(private categService: CategService){}
 
   ngOnInit(){
-    this.loading =true
-    this.categService.fetch().subscribe( categories=>{
-      this.loading=false
-      this.categories = categories
-      console.log('Categories', categories)
-    })
+   
+    this.categories$ =this.categService.fetch()
   }
 
 }
