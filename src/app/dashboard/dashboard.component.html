@@ -9,13 +9,16 @@
  *ngIf="categories$ | async as categories; else loader"
 >
     <div class="col s12">
-        <div class="collection">
+        <div class="collection" *ngIf="categories.length !==0; else empty">
             <a 
             *ngFor="let category of categories"
             href="#!" class="collection-item">{{category.name}}</a>
             
 
         </div>
+        <ng-template #empty>
+            <div> У вас нет категорий!</div>
+        </ng-template>
     </div>
 </div>
 <ng-template #loader>
