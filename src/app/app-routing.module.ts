@@ -12,7 +12,8 @@ const routes: Routes = [
 {path: 'reg', component: RegComponent},
 {path: 'auth', component: AuthComponent},
 {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
-{path: 'categories/new', component: CategoriesFormComponent},];
+{path: 'categories/new', component: CategoriesFormComponent},
+{path: 'categories/:id', component: CategoriesFormComponent},];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
