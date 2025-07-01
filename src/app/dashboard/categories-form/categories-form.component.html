@@ -1,9 +1,9 @@
 <main class="content">
     <div class="page-title">
         <h4>
-            <a href="#">Категории</a>
+            <a routerLink="/categories">Категории</a>
             <i class="material-icons">keyboard_arrow_right</i>
-            Добавить категорию
+            {{isNew ? 'Добавить': 'Редактировать'}} категорию
         </h4>
         <span>
             <button class="btn btn-small red">
