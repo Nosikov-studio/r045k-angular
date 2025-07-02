@@ -90,21 +90,34 @@ export class CategoriesFormComponent implements OnInit{
 
 
   onSubmit(){
+    let obs$
     this.form3.disable()
 
     if (this.isNew){
       //create
-      this.categService.create(this.form3.value.name, this.image)
+      obs$=this.categService.create(this.form3.value.name, this.image)
     } else{
       //update
       //this.categService.update(this.category._id, this.form3.value.name, this.image)
             const id = this.category._id;
             if (id) {
-              this.categService.update(id, this.form3.value.name, this.image);
+             obs$= this.categService.update(id, this.form3.value.name, this.image);
             } else {
               MaterialService.toast('ID категории отсутствует!');
             }
     }
+    obs$?.subscribe(
+      category => {
+        this.category = category
+        MaterialService.toast('Изменения сохранены')
+        this.form3.enable()  
+      },
+      error => {
+        
+        MaterialService.toast(error.error.message)
+        this.form3.enable()
+      }
+    )
 
   }
 
