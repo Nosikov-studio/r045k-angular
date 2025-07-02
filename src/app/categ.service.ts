@@ -18,4 +18,28 @@ private baseUrl = environment.apiUrl;
   getById(id: string):Observable<Category> {
     return this.http.get<Category>(`${this.baseUrl}/api/category/${id}`)
   }
+
+  create(name: string, image?: File):Observable<Category> {
+    const fd=new FormData()
+
+    if(image){
+      fd.append('image', image, image.name)
+    }
+    fd.append('name', name)
+    return this.http.post<Category>(`${this.baseUrl}/api/category`, fd)
+
+  }
+
+  update(id:string, name: string, image?: File):Observable<Category> {
+    const fd=new FormData()
+
+    if(image){
+      fd.append('image', image, image.name)
+    }
+    fd.append('name', name)
+    return this.http.patch<Category>(`${this.baseUrl}/api/category/${id}`, fd)
+
+  }
+
+
 }

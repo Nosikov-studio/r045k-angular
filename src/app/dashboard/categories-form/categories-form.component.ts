@@ -17,6 +17,7 @@ export class CategoriesFormComponent implements OnInit{
   image!: File
   imagePreview!: string | ArrayBuffer | null 
   isNew =true
+  category!: Category
   constructor(private route: ActivatedRoute,
               private categService: CategService
   ){}
@@ -48,6 +49,7 @@ export class CategoriesFormComponent implements OnInit{
       ).subscribe(
         (category: Category|null)=> {
           if (category){
+            this.category = category
             this.form3.patchValue({
               name: category.name
             })
@@ -88,6 +90,21 @@ export class CategoriesFormComponent implements OnInit{
 
 
   onSubmit(){
+    this.form3.disable()
+
+    if (this.isNew){
+      //create
+      this.categService.create(this.form3.value.name, this.image)
+    } else{
+      //update
+      //this.categService.update(this.category._id, this.form3.value.name, this.image)
+            const id = this.category._id;
+            if (id) {
+              this.categService.update(id, this.form3.value.name, this.image);
+            } else {
+              MaterialService.toast('ID категории отсутствует!');
+            }
+    }
 
   }
 
