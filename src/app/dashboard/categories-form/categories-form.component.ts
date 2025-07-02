@@ -22,7 +22,24 @@ export class CategoriesFormComponent implements OnInit{
               private categService: CategService
   ){}
 
+
+
+
+
   ngOnInit(): void {
+
+    // ручное обновление ( функции updateTextInputs нет в библиотеке)
+MaterialService.updateTextInputs = () => {
+  const elems = document.querySelectorAll('input[type=text], textarea');
+  elems.forEach((el: any) => {
+    if (el.value && el.classList.contains('validate')) {
+      el.classList.add('active');
+    }
+  });
+};
+
+
+
     this.form3 = new FormGroup({
       name: new FormControl(null, Validators.required)
     })
