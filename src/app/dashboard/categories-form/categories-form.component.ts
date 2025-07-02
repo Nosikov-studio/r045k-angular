@@ -21,7 +21,7 @@ export class CategoriesFormComponent implements OnInit{
     this.form3 = new FormGroup({
       name: new FormControl(null, Validators.required)
     })
-    this.form3.disable()
+    //this.form3.disable()
 
 //     this.route.params.subscribe((params: Params)=>{
 // if(params['id']){
@@ -50,7 +50,7 @@ export class CategoriesFormComponent implements OnInit{
             )
             MaterialService.updateTextInputs()
           }
-          this.form3.enable()
+         // this.form3.enable()
         },
         error => MaterialService.toast(error.error.message)
         
