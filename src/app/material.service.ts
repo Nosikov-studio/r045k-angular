@@ -27,6 +27,10 @@ export class MaterialService {
         }
     }
 
+    static updateTextInputs() {
+        M.updateTextInputs()
+    }
+
 // static toast(message: string) {
 //     if (M && M.toast) {
 //       M.toast({

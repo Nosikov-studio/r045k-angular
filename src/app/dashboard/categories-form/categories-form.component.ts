@@ -47,6 +47,7 @@ export class CategoriesFormComponent implements OnInit{
               name: category.name
             }
             )
+            MaterialService.updateTextInputs()
           }
         },
         error => MaterialService.toast(error.error.message)
