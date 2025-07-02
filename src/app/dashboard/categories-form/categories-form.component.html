@@ -30,14 +30,19 @@
             </div>
 
             <div>
-                <button class="waves-effect waves-light btn orange lighten-2 mb2">
+                <button
+                type="button"
+                class="waves-effect waves-light btn orange lighten-2 mb2">
                     <i class="material-icons left">backup</i>
                     Загрузить изображение
                 </button>
             </div>
 
             <div>
-                <button class="waves-effect waves-light btn">
+                <button 
+                type="submit"
+                [disabled] ="form3.invalid || form3.disabled"
+                class="waves-effect waves-light btn">
                     Сохранить изменения
                 </button>
             </div>
