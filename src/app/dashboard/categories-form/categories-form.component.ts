@@ -51,7 +51,11 @@ export class CategoriesFormComponent implements OnInit{
             this.form3.patchValue({
               name: category.name
             })
-            this.imagePreview = category.imageSrc ?? null;
+          if(category.imageSrc){
+            this.imagePreview = "https://truruki.ru/"+category.imageSrc;
+          }
+            
+
             console.log(category.imageSrc)
           //  MaterialService.updateTextInputs()
           }
