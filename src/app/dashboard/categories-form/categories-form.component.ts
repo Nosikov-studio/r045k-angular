@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { switchMap, of } from 'rxjs';
@@ -11,6 +11,7 @@ import { MaterialService } from 'src/app/material.service';
   styleUrls: ['./categories-form.component.css']
 })
 export class CategoriesFormComponent implements OnInit{
+  @ViewChild('input') inputRef!: ElementRef
   form3!: FormGroup
   isNew =true
   constructor(private route: ActivatedRoute,
@@ -57,6 +58,13 @@ export class CategoriesFormComponent implements OnInit{
       )
     
   }
+
+  triggerClick(){
+    this.inputRef.nativeElement.click()
+
+  }
+
+
 
   onSubmit(){
 
