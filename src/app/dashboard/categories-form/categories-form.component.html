@@ -13,10 +13,20 @@
     </div>
 
     <div class="row">
-        <div class="col s12 l6">
+        <form3 class="col s12 l6" [formGroup]="form3" (ngSubmit)="onSubmit()">
             <div class="input-field">
-                <input id="name" type="text" required>
+                <input
+                formControlName="name" 
+                id="name" 
+                type="text"
+                [ngClass]="{'invalid': form3.get('name')?.invalid && form3.get('name')?.touched}"
+                >
                 <label for="name">Название</label>
+                <span class="helper-text red-text"
+                *ngIf="form3.get('name')?.invalid && form3.get('name')?.touched"
+                >
+                <span *ngIf="form3.get('name')?.errors?.['required']">Имя не может быть пустым</span>
+            </span>
             </div>
 
             <div>
@@ -31,7 +41,7 @@
                     Сохранить изменения
                 </button>
             </div>
-        </div>
+        </form3>
 
         <div class="col s12 l4 center">
             <img class="responsive-img" style="height: 200px" src="cake.jpg">
