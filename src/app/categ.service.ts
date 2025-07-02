@@ -14,6 +14,8 @@ export class CategService {
 private baseUrl = environment.apiUrl;
   fetch():Observable<Category[]>{
    return this.http.get<Category[]>(`${this.baseUrl}/api/category`)
-
+  }
+  getById(id: string):Observable<Category> {
+    return this.http.get<Category>(`${this.baseUrl}/api/category/${id}`)
   }
 }

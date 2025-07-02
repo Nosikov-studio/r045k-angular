@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
+import { switchMap, of } from 'rxjs';
+import { CategService } from 'src/app/categ.service';
+import { MaterialService } from 'src/app/material.service';
 
 @Component({
   selector: 'app-categories-form',
@@ -10,24 +13,50 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class CategoriesFormComponent implements OnInit{
   form3!: FormGroup
   isNew =true
-  constructor(private route: ActivatedRoute){}
+  constructor(private route: ActivatedRoute,
+              private categService: CategService
+  ){}
 
   ngOnInit(): void {
     this.form3 = new FormGroup({
       name: new FormControl(null, Validators.required)
     })
 
-    this.route.params.subscribe((params: Params)=>{
-if(params['id']){
-  // Мы редактируем форму
-  this.isNew = false
-}
-    } )
+//     this.route.params.subscribe((params: Params)=>{
+// if(params['id']){
+//   // Мы редактируем форму
+//   this.isNew = false
+// }
+//     } )
+    this.route.params
+      .pipe(
+        switchMap(
+          (params: Params) => {
+            if (params['id']) {
+              this.isNew=false
+              return this.categService.getById(params['id'])
+            }
+
+            return of(null)
+          }
+        )
+      ).subscribe(
+        category=> {
+          if (category){
+            this.form3.patchValue({
+              name: category.name
+            }
+            )
+          }
+        },
+        error => MaterialService.toast(error.error.message)
+        
+      )
     
   }
 
   onSubmit(){
-    
+
   }
 
 }
