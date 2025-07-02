@@ -15,7 +15,7 @@ export class CategoriesFormComponent implements OnInit{
   @ViewChild('input') inputRef!: ElementRef
   form3!: FormGroup
   image!: File
-  imagePreview!: string | ArrayBuffer | null | undefined;
+  imagePreview!: string | ArrayBuffer | null 
   isNew =true
   constructor(private route: ActivatedRoute,
               private categService: CategService
@@ -51,8 +51,8 @@ export class CategoriesFormComponent implements OnInit{
             this.form3.patchValue({
               name: category.name
             })
-            this.imagePreview = category.imageSrc
-            MaterialService.updateTextInputs()
+            this.imagePreview = category.imageSrc ?? null;
+          //  MaterialService.updateTextInputs()
           }
          // this.form3.enable()
         },
