@@ -14,7 +14,7 @@ export class CategoriesFormComponent implements OnInit{
   @ViewChild('input') inputRef!: ElementRef
   form3!: FormGroup
   image!: File
-  imagePreview = ''
+  imagePreview!: string | ArrayBuffer | null
   isNew =true
   constructor(private route: ActivatedRoute,
               private categService: CategService
