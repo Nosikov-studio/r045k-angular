@@ -13,6 +13,8 @@ import { MaterialService } from 'src/app/material.service';
 export class CategoriesFormComponent implements OnInit{
   @ViewChild('input') inputRef!: ElementRef
   form3!: FormGroup
+  image!: File
+  imagePreview = ''
   isNew =true
   constructor(private route: ActivatedRoute,
               private categService: CategService
@@ -64,6 +66,19 @@ export class CategoriesFormComponent implements OnInit{
 
   }
 
+  onFileUpload(event: any){
+    const file = event.target.files[0]
+    this.image = file
+
+    const reader = new FileReader()
+
+    reader.onload = () => {
+      this.imagePreview = reader.result
+    }
+
+    reader.readAsDataURL(file)
+
+  }  
 
 
   onSubmit(){
