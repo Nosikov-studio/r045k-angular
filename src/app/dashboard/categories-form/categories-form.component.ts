@@ -52,6 +52,7 @@ export class CategoriesFormComponent implements OnInit{
               name: category.name
             })
             this.imagePreview = category.imageSrc ?? null;
+            console.log(category.imageSrc)
           //  MaterialService.updateTextInputs()
           }
          // this.form3.enable()
