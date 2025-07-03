@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Category } from './interfaces';
+import { Category, Message } from './interfaces';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment.prod';
 
@@ -39,6 +39,10 @@ private baseUrl = environment.apiUrl;
     fd.append('name', name)
     return this.http.patch<Category>(`${this.baseUrl}/api/category/${id}`, fd)
 
+  }
+
+  delete(id: string): Observable<Message>{
+    return this.http.delete<Message>(`${this.baseUrl}/api/category/${id}`)
   }
 
 

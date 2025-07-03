@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { switchMap, of } from 'rxjs';
 import { CategService } from 'src/app/categ.service';
 import { Category } from 'src/app/interfaces';
@@ -19,7 +19,8 @@ export class CategoriesFormComponent implements OnInit{
   isNew =true
   category!: Category
   constructor(private route: ActivatedRoute,
-              private categService: CategService
+              private categService: CategService,
+              private router: Router
   ){}
 
 
@@ -91,6 +92,22 @@ MaterialService.updateTextInputs = () => {
 
   }
 
+  deleteCategory() {
+    
+    if (!this.category._id) {
+    MaterialService.toast('ID категории отсутствует!');
+    return;
+  }
+    const decision =window.confirm(`Вы уверены, что хотите удалить категорию ${this.category.name}?`)
+    if (decision) {
+      this.categService.delete(this.category._id).subscribe(
+        response => MaterialService.toast(response.message),
+        error => MaterialService.toast(error.error.message),
+        ()=> this.router.navigate(['/dashboard'])
+      )
+
+    }
+  }
   onFileUpload(event: any){
     const file = event.target.files[0]
     this.image = file
